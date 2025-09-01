@@ -17,14 +17,14 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
 
-  // Track scroll
+  // Track scrolling
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 150);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Track window size
+  // for tracking window size
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     handleResize(); // set initial value
@@ -40,6 +40,7 @@ export default function Navbar() {
       className="fixed inset-x-0 top-2 z-50 flex justify-center items-center px-2"
     >
       <motion.nav
+      //animation for different different srceen sizes
         animate={{
           width: scrolled
             ? windowWidth <= 900
@@ -66,7 +67,7 @@ export default function Navbar() {
           />
         </div>
 
-        {/* Desktop Menu */}
+        {/*For Desktop Menu */}
         <div className="hidden lg:flex gap-2">
           {navigation.map((item, i) => (
             <motion.a
@@ -116,7 +117,7 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu */}
+      {/*for  Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
