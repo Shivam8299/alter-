@@ -17,9 +17,19 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
 
-  // Track scrolling
+  // // Track scrolling
+  // useEffect(() => {
+  //   const handleScroll = () => setScrolled(window.scrollY > 150);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
+
+   // Track scrolling
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 150);
+
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
