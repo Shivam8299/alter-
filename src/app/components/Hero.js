@@ -2,77 +2,101 @@
 import { motion } from "framer-motion";
 import cloud from "../../../public/cloud.png";
 import Image from "next/image";
-
 export default function HeroSection() {
   return (
-    <div className="relative min-h- [50vh] bg-gray-200 overflow-hidden">
+    <div className="relative min-h-[100vh] bg-gray-200 overflow-hidden mt-16 lg:mt-0 pt-12 lg:py-0">
       {/* Sunlight Rays Background */}
       <div className="absolute inset-0 opacity-30">
-        <svg
+        {/* <svg
           className="absolute top-0 left-0 w-full h-full"
+          viewBox="0 0 1200 600"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        > */}
+        <svg
+          className="absolute -top-40 -left-40   w-[200%] lg:w-[100%] h-[100%]"
           viewBox="0 0 1200 600"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
             <linearGradient id="ray1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#ffffff" stopOpacity="0.8"/>
-              <stop offset="100%" stopColor="#ffffff" stopOpacity="0"/>
+              <stop offset="0%" stopColor="#ffffff" stopOpacity="0.8"  />
+              <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
             </linearGradient>
+            
             <linearGradient id="ray2" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#ffffff" stopOpacity="0.6"/>
-              <stop offset="100%" stopColor="#ffffff" stopOpacity="0"/>
+              <stop offset="0%" stopColor="#ffffff" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
             </linearGradient>
             <linearGradient id="ray3" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#ffffff" stopOpacity="0.4"/>
-              <stop offset="100%" stopColor="#ffffff" stopOpacity="0"/>
+              <stop offset="0%" stopColor="#ffffff" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient id="ray3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#ffffff" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient id="ray3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#ffffff" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient id="ray3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#ffffff" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
             </linearGradient>
           </defs>
-          
+
           {/* Main sunlight rays */}
           <path
-            d="M0 0 L600 300 L580 320 L0 20 Z"
+            d="M0 0 L600 310 L580 320 L0 20 Z"
             fill="url(#ray1)"
             className="animate-pulse"
-            style={{ animationDuration: '4s' }}
+            style={{ animationDuration: "4s" }}
           />
           <path
-            d="M0 20 L620 340 L600 360 L0 40 Z"
+            d="M0 20 L620 360 L600 360 L0 40 Z"
             fill="url(#ray2)"
             className="animate-pulse"
-            style={{ animationDuration: '5s', animationDelay: '1s' }}
+            style={{ animationDuration: "5s", animationDelay: "1s" }}
           />
           <path
             d="M0 40 L640 380 L620 400 L0 60 Z"
             fill="url(#ray3)"
             className="animate-pulse"
-            style={{ animationDuration: '6s', animationDelay: '2s' }}
+            style={{ animationDuration: "6s", animationDelay: "2s" }}
           />
           <path
             d="M0 60 L580 360 L560 380 L0 80 Z"
             fill="url(#ray2)"
             className="animate-pulse"
-            style={{ animationDuration: '4.5s', animationDelay: '0.5s' }}
+            style={{ animationDuration: "4.5s", animationDelay: "0.5s" }}
           />
           <path
             d="M0 80 L600 400 L580 420 L0 100 Z"
             fill="url(#ray1)"
             className="animate-pulse"
-            style={{ animationDuration: '5.5s', animationDelay: '1.5s' }}
+            style={{ animationDuration: "5.5s", animationDelay: "1.5s" }}
           />
-          
+
           {/* Additional subtle rays */}
           <path
             d="M0 100 L560 380 L540 400 L0 120 Z"
             fill="url(#ray3)"
             className="animate-pulse"
-            style={{ animationDuration: '7s', animationDelay: '0.8s' }}
+            style={{ animationDuration: "7s", animationDelay: "0.8s" }}
           />
           <path
             d="M0 120 L590 420 L570 440 L0 140 Z"
             fill="url(#ray2)"
             className="animate-pulse"
-            style={{ animationDuration: '4.8s', animationDelay: '2.2s' }}
+            style={{ animationDuration: "4.8s", animationDelay: "2.2s" }}
+          />
+          <path
+            d="M0 140 L590 440 L570 440 L0 140 Z"
+            fill="url(#ray2)"
+            className="animate-pulse"
+            style={{ animationDuration: "4.8s", animationDelay: "2.2s" }}
           />
         </svg>
       </div>
@@ -134,11 +158,11 @@ export default function HeroSection() {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="text-3xl md:text-5xl lg:text-7xl mt-1 text-black text-center mb-3 leading-tight px-6 py-3 rounded-xl"
+              className="max-w-5xl text-[40px] lg:text-[72px]  text-black text-center mb-3 leading-tight px-6 py-3"
               style={{ fontFamily: "var(--font-plus-jakarta-sans)" }}
             >
               Automate. Engage. Convert.
-              <br />
+            
               Powered by AI.
             </motion.h1>
 
@@ -157,11 +181,11 @@ export default function HeroSection() {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-              className="flex flex-col sm:flex-row gap-4 items-center"
+              className="flex flex-row gap-4 items-center"
             >
               {/* Get Started Button */}
               <motion.button
-                className="flex items-center space-x-2 text-white text-[15px] px-6 py-3 rounded-xl transition-colors duration-200  text-base"
+                className="flex items-center space-x-2 text-white text-[15px] px-8 py-3 rounded-xl transition-colors duration-200  text-base"
                 style={{
                   background:
                     "linear-gradient(125deg, rgb(119, 75, 229) -4%, rgb(119, 75, 229) 100%)",
@@ -196,7 +220,7 @@ export default function HeroSection() {
 
               {/* Learn More Button */}
               <motion.button
-                className="flex items-center space-x-2 text-white text-[15px] px-6 py-3 rounded-xl transition-colors duration-200  text-base"
+                className="flex items-center space-x-2 text-white text-[15px] px-8 py-3 rounded-xl transition-colors duration-200  text-base"
                 style={{
                   background:
                     "linear-gradient(127deg, rgb(14, 28, 41) -68%, rgb(50, 61, 104) 100%)",

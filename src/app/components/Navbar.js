@@ -37,25 +37,25 @@ export default function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="fixed inset-x-0 top-2 z-50 flex justify-center items-center px-2"
+      className=" max-w-[1200px] m-auto  fixed inset-x-0 top-3 z-50 flex justify-center items-center px-2 md:px-4 lg:px-14 xl:6 2x:px-2"
     >
       <motion.nav
-      //animation for different different srceen sizes
+        //animation for different different srceen sizes
         animate={{
           width: scrolled
             ? windowWidth <= 900
               ? "100%"
               : windowWidth <= 1100
               ? "80%"
-              : "60%"
+              : "65%"
             : "100%",
 
-          borderRadius: scrolled ? "15px" : "0px",
+          borderRadius: (scrolled && windowWidth > 900) ? "15px" : "0px",
           boxShadow: scrolled ? "0 4px 20px rgba(0,0,0,0.08)" : "",
         }}
-        transition={{ duration: 0.9, ease: "easeInOut" }}
-        className={`max-w-7xl flex items-center justify-between px-6 py-[6px] ${
-          scrolled || windowWidth < 900 ? "bg-white" : ""
+        transition={{ duration: 0.6, ease: "easeInOut" }}
+        className={`max-w-7xl flex items-center justify-between px-5  sm:mx-0  py-[6px] ${
+          scrolled || windowWidth < 900 ? "bg-white rounded-none " : " rounded-none"
         }`}
       >
         {/* Logo */}
@@ -109,7 +109,7 @@ export default function Navbar() {
         <div className="lg:hidden">
           <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             {mobileMenuOpen ? (
-              <XMarkIcon className="w-8 h-8 md:h-10 md:w-10 text-gray-900" />
+              <XMarkIcon className="w-8 h-8 md:h-10 md:w-10 text-gray-900 " />
             ) : (
               <Bars3Icon className="w-8 h-8 md:h-10 md:w-10 text-gray-900" />
             )}
@@ -118,7 +118,7 @@ export default function Navbar() {
       </motion.nav>
 
       {/*for  Mobile Menu */}
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -135,6 +135,45 @@ export default function Navbar() {
                 {item.name}
               </a>
             ))}
+          </motion.div>
+        )}
+      </AnimatePresence> */}
+      {/*for  Mobile Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="absolute top-13 sm:top-14 inset-x-2 sm:mx-2 bg-white shadow-xl rounded-2xl rounded-t-none p-4 flex flex-col gap-4 lg:hidden z-20"
+          >
+            {/* Navigation Links */}
+            <div className="flex flex-col gap-3">
+              {navigation.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-gray-800 font-semibold text-base py-2 px-3 rounded-lg  transition-colors"
+                >
+                  {item.name}
+                </a>
+              ))}
+            </div>
+
+            {/* CTA Button */}
+            <div className="py-2">
+              <button
+                style={{
+                  background:
+                    "linear-gradient(127deg, rgb(14, 28, 41) -68%, rgb(50, 61, 104) 100%)",
+                }}
+                className="w-full flex items-center justify-center gap-2 text-white px-4 py-3 rounded-xl shadow-md"
+              >
+                <FaCrown className="text-white" size={18} />
+                Get Template
+              </button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

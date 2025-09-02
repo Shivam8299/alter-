@@ -29,8 +29,8 @@ export default function Page() {
       <Hero scrolled={scrolled} />
 
       {/* Other Page Content */}
-      {/* <Main />
-      <Main/> */}
+      <Main />
+      <Main/>
     </div>
   );
 }
