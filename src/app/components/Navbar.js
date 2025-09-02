@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { FaCrown } from "react-icons/fa";
+import { Sparkles } from "lucide-react";
 
 const navigation = [
   { name: "Features", href: "#" },
@@ -24,7 +24,7 @@ export default function Navbar() {
   //   return () => window.removeEventListener("scroll", handleScroll);
   // }, []);
 
-   // Track scrolling
+  // Track scrolling
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 150);
 
@@ -47,7 +47,7 @@ export default function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className=" max-w-[1200px] m-auto  fixed inset-x-0 top-3 z-50 flex justify-center items-center px-2 md:px-4 lg:px-14 xl:6 2x:px-2"
+      className=" max-w-[1150px] m-auto  fixed inset-x-0 top-3 z-50 flex justify-center items-center px-2 md:px-4 lg:px-14 xl:6 2x:px-2"
     >
       <motion.nav
         //animation for different different srceen sizes
@@ -60,22 +60,35 @@ export default function Navbar() {
               : "65%"
             : "100%",
 
-          borderRadius: (scrolled && windowWidth > 900) ? "15px" : "0px",
+          borderRadius: scrolled && windowWidth > 900 ? "15px" : "0px",
           boxShadow: scrolled ? "0 4px 20px rgba(0,0,0,0.08)" : "",
         }}
         transition={{ duration: 0.6, ease: "easeInOut" }}
         className={`max-w-7xl flex items-center justify-between px-5  sm:mx-0  py-[6px] ${
-          scrolled || windowWidth < 900 ? "bg-white rounded-none " : " rounded-none"
+          scrolled || windowWidth < 900
+            ? "bg-white rounded-none "
+            : " rounded-none"
         }`}
       >
         {/* Logo */}
-        <div className="flex items-center">
-          <img
-            className="h-10 w-auto"
-            src="https://framerusercontent.com/images/on7xUpJ1SM94eAeiyf04v5F4rjQ.png"
-            alt="Logo"
-          />
+        <div className="flex justify-center items-center gap-[2px]">
+        <div className=" w-10 h-10 bg-white flex items-center justify-center rounded-[10px] shadow-md  ">
+          <span className="text-white w-8 h-8 text-xl  bg-[#0e1c29]  rounded-[10px] flex items-center justify-center font-semibold">
+            qb
+          </span>
         </div>
+        <p className="text-xl text-gray-800 font-semibold">QuickBid</p>
+        </div>
+        {/* </div> */}
+
+        {/* <div className="rounded-xl flex items-center justify-center">
+          <div className="p-[5px]  rounded-xl bg-white">
+            <span className="text-white w-7 h-7  text-2xl mt-[-3px] bg-[#0e1c29] p-4 border border-red-600 rounded-[10px] flex items-center justify-center font-semibold">
+            qb
+          </span>
+          </div>
+          <p>QuickBid</p>
+        </div> */}
 
         {/*For Desktop Menu */}
         <div className="hidden lg:flex gap-2">
@@ -86,7 +99,7 @@ export default function Navbar() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.15 + 0.5 }}
-              className="font-semibold text-gray-800 text-sm py-1 px-4 rounded-xl hover:bg-gray-400 transition-colors"
+              className={`font-medium  text-[#0E1C29] text-[14px] py-1 px-3  rounded-xl hover:bg-gray-400 transition-colors`}
             >
               {item.name}
             </motion.a>
@@ -107,10 +120,10 @@ export default function Navbar() {
                 background:
                   "linear-gradient(127deg, rgb(14, 28, 41) -68%, rgb(50, 61, 104) 100%)",
               }}
-              className="flex items-center gap-2 text-white px-4 py-2 rounded-lg shadow-md"
+              className="flex items-center gap-1 text-white px-3 py-2 rounded-lg shadow-md"
             >
-              <FaCrown className="text-white" size={20} />
-              Get Template
+            <Sparkles size={16} />
+             <span className="text-sm"> Request Demo</span>
             </button>
           </motion.div>
         </AnimatePresence>
@@ -180,8 +193,8 @@ export default function Navbar() {
                 }}
                 className="w-full flex items-center justify-center gap-2 text-white px-4 py-3 rounded-xl shadow-md"
               >
-                <FaCrown className="text-white" size={18} />
-                Get Template
+                <Sparkles className="text-white" size={18} />
+                Request Demo
               </button>
             </div>
           </motion.div>

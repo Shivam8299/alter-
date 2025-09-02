@@ -158,7 +158,7 @@ export default function HeroSection() {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="max-w-5xl text-[40px] lg:text-[72px]  text-black text-center mb-3 leading-tight px-6 py-3"
+              className="max-w-5xl text-[40px] lg:text-[72px]  text-[#16101e] text-center mb-3 leading-tight px-6 py-3"
               style={{ fontFamily: "var(--font-plus-jakarta-sans)" }}
             >
               Automate. Engage. Convert.

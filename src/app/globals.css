@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@theme {
+  --font-body: "Inter", sans-serif;
+}
+
+/* Set global font using CSS variable */
+html, body {
+  font-family: var(--font-body);
+}
 /* globals.css */
 
 
