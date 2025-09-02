@@ -2,11 +2,18 @@
 import { motion } from "framer-motion";
 import cloud from "../../../public/cloud.png";
 import Image from "next/image";
+import { Plus_Jakarta_Sans } from "next/font/google";
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-plus-jakarta-sans",
+});
+
 export default function HeroSection() {
   return (
     <div className="relative min-h-[100vh] bg-gray-200 overflow-hidden mt-16 lg:mt-0 pt-12 lg:py-0 ">
       {/* Sunlight Rays Background */}
-      <div className="absolute inset-0 opacity-30 backdrop-blur-md  w-[100%]">
+      <div className="absolute inset-0 opacity-30 backdrop-blur-sm ">
         {/* <svg
           className="absolute top-0 left-0 w-full h-full"
           viewBox="0 0 1200 600"
@@ -158,8 +165,7 @@ export default function HeroSection() {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="max-w-5xl text-[40px] lg:text-[72px]  text-[#16101e] text-center mb-3 leading-tight px-6 py-3"
-              style={{ fontFamily: "var(--font-plus-jakarta-sans)" }}
+              className={`${plusJakarta.className} max-w-5xl text-[40px] lg:text-[72px]  text-[#16101e] text-center mb-3 leading-tight px-6 py-3`}
             >
               Automate. Engage. Convert.
             
